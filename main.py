@@ -8,14 +8,14 @@ CORS(app)
 
 @app.route("/", methods=['POST'])
 def sendMessage():
-    #API_KEY = os.getenv("API_KEY")
+    API_KEY = os.getenv("API_KEY")
     llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
     temperature=0.2,
     max_tokens=None,
     timeout=None,
     max_retries=2,
-    api_key="AIzaSyCZ4qM5bJuq9GCOHpTgaY1AqI9kfzSMhlE"
+    api_key=API_KEY
     )
 
     userMsg = json.loads(request.data)
